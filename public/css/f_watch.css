@@ -1,0 +1,332 @@
+.home-slideshow.slide-watch{
+  width: 100%;
+}
+.home-slideshow.slide-watch >.home-slideshow__img{
+ height: 350px;
+}
+.slideshow-content-item.point-slide.watch-slide{
+  height: 10px;
+  width: 10px;
+}
+/* find-watch */
+.find-watch{
+  display: block;
+  overflow: hidden;
+  background: #fff;
+  padding: 10px;
+  margin: 15px 0;
+  position: relative;
+}
+.find-watch > .content-find{
+  display: flex;
+  align-items: center;
+  align-content: center;
+}
+.content-find >a{
+  display: block;
+  width: 25%;
+  max-width: 25%;
+  border-left: 1px solid #ddd;
+  text-align: center;
+  position: relative;
+}
+.content-find >a:first-child{
+  border-left: none;
+}
+.content-find >a >.news-fwatch{
+  position: absolute;
+  right: 38px;
+  top: 6px;
+  color: #fff ;
+  background-color: #f00;
+  font-size: 12px ;
+  border-radius: 4px;
+  padding: 0 3px;
+  padding-top: 2px;
+  line-height: 1.3;
+}
+.content-find >a >img{
+  display: inline-block;
+  margin-right: 5px;
+  vertical-align: middle;
+  overflow: hidden;
+  width: 60px;
+}
+.content-find >a > .name-kind{
+  display: inline-block;
+  vertical-align: middle;
+  padding: 15px 0;
+  padding-right: 10px;
+  text-align: left;
+}
+.name-kind >strong{
+  display: block;
+  overflow: hidden;
+  text-transform: uppercase;
+  font-size: 14px;
+  color: #333;
+  padding: 5px 0;
+}
+/* top 10 sp bán chạy */
+h3.heading-top{
+  background: transparent url("../images/title-bestseller-min.png") no-repeat center top;
+  height: 63px;
+  text-indent: -9999px;
+  margin: 0;
+  padding: 0;
+  position: relative;
+}
+h3.heading-top + div.product__title{
+  margin-top: 0;
+}
+.tab-watch > button{
+  font-size: 14px;
+  display: inline;
+  vertical-align: middle;
+  text-align: center;
+  border: 1px solid #288ad6;
+  padding: 10px 20px;
+  border-radius: 4px;
+  margin: 15px 5px 10px 10px;
+  background: #fff;
+  color: #288ad6;
+  cursor: pointer;
+  outline: none;
+}
+.tab-watch >button:first-child{
+  /* margin-left: 0; */
+}
+.tab-watch >button.current{
+  background: #e3effc;
+  font-weight: 600;
+}
+.tab-watch + .viewallcate >a {
+  position: relative;
+}
+.tab-watch + .viewallcate >a i {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 0px;
+  font-size: 10px;
+}
+.tab-watch + .viewallcate >a:hover{
+  text-decoration: none
+}
+/* fashion-watch */
+.fashion-watch{
+  display: block;
+  position: relative;
+  margin-top: 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  align-content: center;
+}
+.fashion-watch > a{
+  display: block;
+}
+.box-watches{
+  margin-top: 10px;
+  display: flex;
+  position: relative;
+  background-color: #0e2432;
+}
+.box-watches.women{
+	margin: 20px auto;
+	background-color: #c9cad0;
+}
+.box-watches.women .content-watches .tabs-link *{
+	color: #333;
+}
+
+.box-watches .img-heading{
+  width: 20%;
+  max-width: 20%;
+  position: relative;
+  background-color: #000;
+}
+.box-watches .img-heading >img{
+  display: block;
+  width: 100%;
+}
+.box-watches .img-heading a{
+  display: block;
+  position: absolute;
+  width: 101px;
+  text-align: center;
+  left: 0;
+  right: 0;
+  top: 327px;
+  margin: auto;
+  overflow: hidden;
+  padding: 6px 10px;
+  border: 1px solid #fff;
+  text-align: center;
+  color: #fff;
+  background: #000;
+}
+.box-watches .img-heading a i{
+  font-size: 12px;
+  position: absolute;
+  right: 5px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.box-watches .content-watches{
+  display: block;
+  width: 80%;
+  max-width: 80%;
+}
+.content-watches .tabs{
+  display: flex;
+  justify-content: space-between;
+  align-content: center;
+  align-items: center;
+}
+.tabs .tabs-link {
+
+}
+.tabs .tabs-link >*{
+  background: none;
+  color: #fff;
+  display: inline-block;
+  padding: 10px 15px 5px 15px;
+  cursor: pointer;
+  position: relative;
+}
+.tabs .tabs-link a i{
+  margin-left: 5px;
+  font-size: 12px;
+}
+.tabs-link > .tab-active{
+  font-weight: 600;
+}
+.content-watches-outer{
+  overflow: hidden;
+  position: relative;
+  width: 98%;
+  background-color: #fff;
+  margin: 10px;
+ /*  min-height: 370px;
+  max-height: 380px; */
+  overflow: hidden;
+  border-radius: 4px;
+}
+.tabs-link > span.tab-active:after{
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 40%;
+  border-right: 10px solid transparent;
+  border-left: 10px solid transparent;
+  border-bottom: 10px solid #fff;
+}
+.content-watches-outer >span{
+  position: absolute;
+  top: 45%;
+  transform: translateY(-45%);
+  background-color: rgba(255,255,255,.5);
+  padding: 12px;
+  border-radius: 5px;
+  outline: none;
+  box-shadow: 0 0 5px #999;
+  border: none;
+  padding: 16px 12px;
+}
+.content-watches-outer > span.prev{
+  left: 0;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+}
+.content-watches-outer > span.next{
+  right: 0;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+.content-watches-outer >span i{
+  font-size: 30px;
+  color: #999;
+}
+.content-watches-inter {
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+}
+.content-watches-inter .product__list{
+  overflow: hidden;
+  display: flex;
+  flex-flow: row wrap;
+  flex: 1 100%;
+}
+.content-watches-outer .product__list .product{
+  width: 235px;
+  max-width: 235px;
+}
+.product__list.watch >.product,
+.product__list.girl-watch >.product{
+	border-bottom: none;
+}
+.product__list.watch .product .product-img a > img {
+  width: 100%;
+  height: 100%;
+}
+.product__list.girl-watch .product .product-img a > img {
+  width: 100%;
+  height: 100%;
+  max-width: 85%;
+}
+.product__list.watch .product .product-img a span img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 50px;
+}
+.product__list .product .product-promo{
+  padding: 0 10px;
+}
+.product__title > h3{
+	
+}
+h3.tabs{
+	position: relative;
+	padding: 0 10px;
+	display: block;
+	background-image: url("../images/title-dayda-min.png");
+  height: 44px;
+  line-height: 44px;
+  font-weight: 500;
+  text-align: right;
+  margin: 0;
+}
+h3.tabs >a.read-more{
+	font-size: 14px;
+	display: block;
+	color: #000;
+}
+h3.tabs >a.read-more i{
+	font-size: 10px;
+	margin-left: 8px;
+	font-weight: 600;
+}
+.lunar footer:before {
+  background: transparent url("../images/bg_footer-min.png") no-repeat center top;
+  content: "";
+  position: absolute;
+  left: 0;
+  top: -1231px;
+  height: 1231px;
+  width: 100%;
+  z-index: -1;
+}
+
+@media screen and (max-width: 1366px){
+	a.leftgame >img {
+	  width: 100px;
+	  left: calc((100% - 1200px)/2 - 95px) !important;
+	}
+	a.rightgame >img {
+	  width: 80px;
+	  /* right: calc((100% - 1200px)/2 - 95px) !important; */
+	}
+}

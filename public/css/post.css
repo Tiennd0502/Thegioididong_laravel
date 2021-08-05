@@ -1,0 +1,118 @@
+.post {
+  display: flex;
+  justify-content: space-between;
+}
+
+.post-left {
+  width: 66%;
+}
+
+.post-left .post-top {
+  border-bottom: 1px solid #eee;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 0px;
+}
+
+.post-new {
+  width: 65%;
+}
+
+.post-new a:hover h3,
+.post-item a:hover h3 {
+  color: #288ad6;
+}
+
+.post-item {
+  width: 100%;
+  border-bottom: 1px solid #eee;
+}
+
+.post-item:last-child {
+  border-bottom: none;
+}
+
+.post-item a {
+  display: block;
+  padding: 10px 0;
+}
+
+.post-item:first-child a {
+  padding: 0;
+  padding-bottom: 10px;
+}
+
+.post-image {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  margin-bottom: 10px;
+}
+
+h3.post-title {
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  font-size: 24px;
+  line-height: 28px;
+  font-weight: 600;
+  margin: 0;
+}
+
+.post-item h3.post-title {
+  color: #999;
+  font-size: 20px;
+}
+
+.post-item a:hover h3.post-title {
+  color: #288ad6;
+}
+
+.post-item h3.post-title.sub-post-title {
+  font-size: 16px;
+  line-height: 1.3em;
+  font-weight: 300;
+  margin-bottom: 0;
+  color: #000;
+}
+
+.post-short-description {
+  display: block;
+  overflow: hidden;
+  font-size: 14px;
+  color: #333;
+  line-height: 22px;
+  padding: 10px 0;
+}
+
+.time-post {
+  margin-top: 5px;
+}
+
+.time-post time {
+  display: block;
+  overflow: hidden;
+  font-size: 12px;
+  color: #999;
+}
+
+.post-list {
+  width: 33.33%;
+  display: flex;
+  flex-direction: column;
+  padding-top: 0;
+  margin-bottom: 0;
+}
+
+.post-item {}
+
+.post-right {
+  width: 32%;
+}
+
+.main-posts .post-item a {
+  display: flex;
+}

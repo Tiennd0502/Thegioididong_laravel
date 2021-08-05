@@ -1,0 +1,51 @@
+.quick-filter {
+  display: flex;
+  flex-wrap: wrap;
+  max-width: 1200px;
+  margin: 15px auto;
+}
+
+.filter-item {
+  cursor: pointer;
+  margin: 0 6px;
+  width: 120px;
+}
+
+.filter-item.active img {
+  border: 1px solid #288ad6;
+}
+
+.filter-item.active span {
+  color: #288ad6;
+}
+
+.filter-item img {
+  display: block;
+  object-fit: cover;
+  background-color: #f4f4f4;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  height: 60px;
+  margin: 0 auto;
+  width: 60px;
+}
+
+.filter-item span {
+  display: block;
+  margin: 5px auto;
+  font-size: 13px;
+  line-height: 17px;
+  max-width: 96px;
+  text-align: center;
+  color: #333;
+  display: block;
+}
+
+.filter-item:hover img {
+  border: 1px solid #288ad6;
+}
+
+.filter-item:hover span {
+  color: #288ad6;
+}

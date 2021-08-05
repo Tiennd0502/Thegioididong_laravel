@@ -1,0 +1,44 @@
+.filter-trademark.trademark-watch {
+  background-color: #fff;
+  padding-left: 1px;
+  margin-bottom: 0px;
+}
+
+.filter-trademark.trademark-watch>a {
+  width: 14.28%;
+  max-width: 14.3%;
+}
+
+.filter-trademark.trademark-watch>a:nth-child(8) {
+  border-top: none;
+}
+
+.filter-trademark.trademark-watch>a:nth-child(9) {
+  border-left: none;
+}
+
+.filter-other.trademark-watch {
+  background-color: #fff;
+  padding: 5px 10px;
+  margin-bottom: 10px;
+}
+
+h3.tabs.watchw {
+  background-image: url("../images/title-smartwatchfeature-min.png");
+}
+
+.product-img {
+  position: relative;
+}
+
+.product-img a span img {
+  position: absolute;
+  bottom: 0px;
+  width: 45px;
+  height: auto;
+  right: 25px;
+}
+
+.home-product div:first-child {
+  border-left: none;
+}
