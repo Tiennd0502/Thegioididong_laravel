@@ -15,7 +15,7 @@
     <div class="owl-carousel slide-product w-max home-promo h-auto owl-theme" >
       @foreach ($f_watch_hots as $item_hot) 
         <div class="item">
-          <a href="" class="">
+          <a href="{{ route('home.product.detail', [$item_hot->category->slug, $item_hot->slug])}}" class="">
             <img class="lazyload" loading="lazy" data-src="{{ asset('images/products'.$item_hot->avatar)}}" alt="" width="180" height="180" >
             <h3>{{$item_hot->name }}</h3>
             <!-- <h6 class="text-promo">Hàng sắp về</h6> -->
@@ -47,7 +47,7 @@
     <div class="owl-carousel home-promo slide-product h-auto owl-theme" >
       @foreach ($s_watch_hots as $item_hot) 
         <div class="item">
-          <a href="" class="">
+          <a href="{{ route('home.product.detail', [$item_hot->category->slug, $item_hot->slug])}}" class="">
             <img class="lazyload" loading="lazy" data-src="{{ asset('images/products'.$item_hot->avatar)}}" alt="" width="180" height="180" >
             <h3>{{$item_hot->name }}</h3>
             <!-- <h6 class="text-promo">Hàng sắp về</h6> -->
@@ -79,7 +79,7 @@
     <div class="owl-carousel home-promo slide-product h-auto owl-theme" >
       @foreach ($watch_chain_hots as $item_hot)
           <div class="item">
-            <a href="" class="">
+            <a href="{{ route('home.product.detail', [$item_hot->category->slug, $item_hot->slug])}}" class="">
               <img class="lazyload" loading="lazy" data-src="{{ asset('images/products'.$item_hot->avatar)}}" alt="" width="180" height="180" >
               <h3>{{$item_hot->name }}</h3>
               <div class="product-price">

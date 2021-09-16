@@ -13,7 +13,7 @@
   @foreach ($laptops as $key=> $item)
     @if($key == 0)
       <div class="feature">
-        <a href="" class="large">
+        <a href="{{ route('home.product.detail', [$laptop_hot->category->slug, $laptop_hot->slug])}}" class="large">
           {{-- Cach 2
              <a href="{{ route($mobile_hots[$index]->category->slug.'.detail', $mobile_hots[$index]->slug) }}" class="large">
            --}}
@@ -45,7 +45,7 @@
       </div>
     @endif
     <div class="">
-      <a href="" class="large laptop">
+      <a href="{{ route('home.product.detail', [$item->category->slug, $item->slug])}}" class="large laptop">
         {{-- Cach 2
            <a href="{{ route($item->category->slug.'.detail', $item->slug) }}" class="laptop large">
          --}}

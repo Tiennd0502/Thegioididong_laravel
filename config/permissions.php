@@ -1,6 +1,12 @@
 <?php
   return [
     'access' => [
+      'list-dashboard'    => 'list-dashboard',
+      'add-dashboard'     => 'add-dashboard',
+      'show-dashboard'    => 'show-dashboard',
+      'copy-dashboard'    => 'copy-dashboard',
+      'edit-dashboard'    => 'edit-dashboard',
+      'delete-dashboard'  => 'delete-dashboard',
       'list-page'         => 'list-page',
       'add-page'          => 'add-page',
       'show-page'         => 'show-page',
@@ -81,6 +87,7 @@
       'delete-user'       => 'delete-user'
     ],
     'module_parent'=> [
+      'dashboard'   => 'Thống kê',
       'page'        => 'trang',
       'slider'      => 'slider',
       'category'    => 'danh mục',

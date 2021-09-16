@@ -20,7 +20,7 @@ class AdminController extends Controller
     public function getLogin()
     {
         if(Auth::check()){
-            return redirect()->route('page.index');
+            return redirect()->route('dashboard.index');
         }else{
             return view('backend.login');
         }
@@ -38,7 +38,7 @@ class AdminController extends Controller
         }
 
         if(Auth::attempt($data, $remember)){
-            return redirect()->route('page.index');
+            return redirect()->route('dashboard.index');
         }else{
             return back()->withInput()->with('message', __('Tài khoản hoặc mật khẩu chưa đúng. Xin thử lại!'));
         }

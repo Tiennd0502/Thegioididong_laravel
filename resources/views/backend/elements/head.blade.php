@@ -15,3 +15,7 @@
 <link rel="stylesheet" type="text/css" href="{{ asset('css/plugins/sweetAlert/sweetalert2.min.css') }}">
 <!-- Custom CSS -->
 <link rel="stylesheet" type="text/css" href="{{ asset('css/sb-admin.css') }}">
+
+@if($current_page == 'dashboard')
+  <link href="{{ asset('libs/c3/c3.min.css')}}" rel="stylesheet" type="text/css">
+@endif

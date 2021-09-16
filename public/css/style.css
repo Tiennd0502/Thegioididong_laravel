@@ -75,7 +75,8 @@ a:hover {}
 .header {
   background-color: #000;
   display: block;
-  /* padding: 5px 0; */
+  position: relative;
+  z-index: 99;
 }
 
 .header .container {
@@ -109,14 +110,11 @@ a:hover {}
   width: 200px;
   height: 30px;
   background: #fff;
-  position: relative;
   margin-right: 10px;
   border-radius: 4px;
   flex-grow: 1;
-  overflow: hidden;
-  display: flex;
-  align-items: center;
-  align-content: center;
+  position: relative;
+  z-index: 1;
 }
 
 .header-search input {
@@ -147,7 +145,7 @@ header .wrap-suggestion {}
   left: 0;
   width: 345px;
   top: 35px;
-  z-index: 9;
+  z-index: 9999;
   margin: 0;
   padding: 0;
   list-style: none;

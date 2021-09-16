@@ -8,6 +8,9 @@ use App\Models\Category as MainModel;
 use App\Models\Brand;
 use App\Models\Product;
 use App\Models\Slider;
+use App\Models\Order;
+use App\Models\Customer;
+use App\Models\Evaluate;
 
 
 class CategoryController extends FrontendController
@@ -66,10 +69,36 @@ class CategoryController extends FrontendController
                         break;
                 }
             }else{
-                abort(404);
+                return abort(404);
             }
         }
     }
+    
+    public function detail($category_slug, $product_slug){
+        $category = MainModel::where('slug', $category_slug)->first();
+        if($category){
+            $current_page = $category_slug;
+            $detail_page = true;
+            $item = $this->getProduct($product_slug);
+            if($item){
+                $this->updateProductView($item);
+                $evaluates = $item->evaluates;
+                $rating = $this->calcRatingByProduct($evaluates);
+                $related_products = $this->getProductByBrand($item->brand->id, 4, [$item->id]);
+                return view('frontend.shares.detail',compact('current_page', 'detail_page', 'item','related_products','evaluates','rating'));
+            }else{
+                return abort(404);
+            }
+        }else{
+            return abort(404);
+        }
+    }
+
+    public function updateProductView($item){
+        $item->view = $item->view + 1;
+        $item->save();
+    }
+
 
     public function home(){
         $current_page = '';
@@ -105,6 +134,16 @@ class CategoryController extends FrontendController
         $item_hots = $this->getProductHotByCategory(1,2,true);
         $items = $this->getProductByCategory(1,16,[$item_hots[0]->id, $item_hots[1]->id]);
         return view('frontend.mobiles.index',compact('current_page', 'sliders', 'brands' , 'item_hots', 'items'));
+    }
+
+    public function mobileDetail($product_slug){
+        $current_page = 'dien-thoai';
+        $item = $this->getProduct($product_slug);
+        $evaluates = $item->evaluates;
+        $rating = $this->calcRatingByProduct($evaluates);
+        $related_products = $this->getProductByBrand($item->brand->id, 4, [$item->id]);
+        // dd($item->parameters);
+        return view('frontend.mobiles.detail',compact('current_page', 'item','related_products','evaluates','rating'));
     }
 
     public function laptop(){
@@ -228,14 +267,14 @@ class CategoryController extends FrontendController
             $cart[$id]['quantity'] = $cart[$id]['quantity'] + 1;
         }else{
             $cart[$id] = [
-                'name' =>$item->name,
+                'name'          =>$item->name,
                 'category_slug' => $item->category->slug,
-                'slug' => $item->slug,
-                'avatar' => $item->avatar,
-                'price' => $item->price,
-                'discount' => $item->discount,
-                'gift' => $item->gift,
-                'quantity' => 1
+                'slug'          => $item->slug,
+                'avatar'        => $item->avatar,
+                'price'         => $item->price,
+                'discount'      => $item->discount,
+                'gift'          => $item->gift,
+                'quantity'      => 1
             ];
         }
         session()->put('cart', $cart);
@@ -254,17 +293,17 @@ class CategoryController extends FrontendController
     }
 
     public function totalCart(){
-        $cart = session()->get('cart');
-        $total = 0;
-        $discount = 0;
+        $cart       = session()->get('cart');
+        $total      = 0;
+        $discount   = 0;
         foreach($cart as $item){
-            $total += $item['price'] * $item['quantity'];
-            $discount += round($item["price"] * $item["discount"] / 100, -4) * $item["quantity"];
+            $total      += $item['price'] * $item['quantity'];
+            $discount   += round($item["price"] * $item["discount"] / 100, -4) * $item["quantity"];
         }
         return [
-            'total' => $total,
-            'discount' => $discount,
-            'count' => count($cart)
+            'total'     => $total,
+            'discount'  => $discount,
+            'count'     => count($cart)
         ];
     }
 
@@ -281,24 +320,26 @@ class CategoryController extends FrontendController
     }
 
     public function payment(Request $request){
-        $item = new Order();
-        $item->name  = $request->name;
-        $item->phone = $request->phone;
-        $item->email = $request->email;
-        $item->address = $request->address .", ".$request->commune .", ".$request->district .", ".$request->province;
-        $item->note = !empty($request->note) ? $request->note : "";
-        $item->save();
+    
         $checkPhone = $this->checkPhone($request->phone);
+
         if(!$checkPhone){
             Customer::create(
                 [
-                    "name"  => $request->name,
-                    "phone" => $request->phone,
-                    "email" => $request->email,
-                    "address" => $request->address,
+                    "name"      => $request->name,
+                    "phone"     => $request->phone,
+                    "email"     => $request->email,
+                    "address"   => $request->address,
                 ]
             );
         }
+        $item           = new Order();
+        $item->name     = $request->name;
+        $item->phone    = $request->phone;
+        $item->email    = $request->email;
+        $item->address  = $request->address .", ".$request->commune .", ".$request->district .", ".$request->province;
+        $item->note     = !empty($request->note) ? $request->note : "";
+        $item->save();
         $cart = session()->get('cart');
         foreach($cart as $key => $value){
             $item->products()->attach($key, [
@@ -354,41 +395,6 @@ class CategoryController extends FrontendController
         // $rating['avg'] = $evaluates->avg('rating');
         // $rating['count_rating'] = $evaluates->countBy('rating');
         return $rating;
-    }
-
-    public function detail($category, $product_name){
-        $item = Product::where('slug', $product_name)->first();
-        $current_page = $category;
-        $category = MainModel::where('slug',$category)->first();
-
-        $related_products = Product::whereNotIn('id', [$item->id])->where('active' ,1)->where('brand_id',$item->brand_id)->limit(4)->get(['id', 'name', 'slug', 'price', 'discount', 'avatar', 'icon', 'image_hot']);
-
-        // dd($related_products);
-
-        switch ($current_page) {
-            
-            case 'dien-thoai':
-                
-                return view('Frontend.mobiles.detail',[
-                    'current_page' => $current_page,
-                    'category' => $category,
-                    'item'=> $item,
-                    'related_products' => $related_products,
-                ]);
-                break;
-
-            case 'laptop':
-                return view('Frontend.laptop.index',[
-                    'current_page' => $current_page,
-                    'sliders' => $sliders,
-                    'items'=> $items,
-                    'brands' => $brands
-                ]);
-                break;
-            default:
-                # code...
-                break;
-        }
     }
 
     public function showMore($category_id, $page){

@@ -23,14 +23,13 @@
       <a href="" class="infor-contact">HỎI ĐÁP</a>
       <a href="" class="infor-game-ap">GAME APP</a>
     </div>
-    
-      @if ($current_page == 'dong-ho-thoi-trang' || $current_page == 'dong-ho-thong-minh') 
-        <a class="leftgame home" href="">
-          <img src="{{ asset('images/home-left-min.png') }}" width="146" style="position: fixed; left: 611px; top: 120px;z-index: 2">
-        </a>
-        <a class="rightgame home" href="">
-          <img src="{{ asset('images/home-right-min.png') }}" width="117" style="position: fixed; right: -0.5px; top: 120px;z-index: 2">
-        </a>
-     @endif
+    @if (($current_page == 'dong-ho-thoi-trang' || $current_page == 'dong-ho-thong-minh') && !isset($detail_page)) 
+      <a class="leftgame home" href="">
+        <img src="{{ asset('images/home-left-min.png') }}" width="146" style="position: fixed; left: 611px; top: 120px;z-index: 2">
+      </a>
+      <a class="rightgame home" href="">
+        <img src="{{ asset('images/home-right-min.png') }}" width="117" style="position: fixed; right: -0.5px; top: 120px;z-index: 2">
+      </a>
+    @endif
   </div>
 </header><!-- /header -->

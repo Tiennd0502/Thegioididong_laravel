@@ -295,7 +295,7 @@
   {{-- include modal --}}
   @include('backend.products.parameter_modal')
 
-  <script type="text/javascript" src="{{ asset('library/ckeditor/ckeditor.js') }}"></script>
+  <script type="text/javascript" src="{{ asset('libs/ckeditor/ckeditor.js') }}"></script>
   <script>
     CKEDITOR.replace('Content');
   </script>

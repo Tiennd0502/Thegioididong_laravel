@@ -1,8 +1,8 @@
 <div class="collapse navbar-collapse" id="navbarNav">
   <ul class="nav navbar-nav side-nav flex-column">
-    {{-- <li class="nav-item {{ ($current_page == 'dashboard') ? 'active' : '' }}">
-      <a class="nav-link" href="{{ route('admin.showDashboard')}}"><i class="fas fa-tachometer-alt"></i> Tổng quan<span class="sr-only">(current)</span></a>
-    </li> --}}
+    <li class="nav-item {{ ($current_page == 'dashboard') ? 'active' : '' }}">
+      <a class="nav-link" href="{{ route('dashboard.index')}}"><i class="fas fa-tachometer-alt"></i> Tổng quan<span class="sr-only">(current)</span></a>
+    </li>
     <li class="nav-item {{ ($current_page == 'page') ? 'active' : '' }}">
       <a class="nav-link" href="{{ route('page.index')}}"><i class="fad fa-copy"></i> Trang<span class="sr-only">(current)</span></a>
     </li>

@@ -9,3 +9,13 @@
 <!-- my js -->
 <script type="text/javascript" src="{{ asset('js/js-admin.js') }}"></script>
 
+@if($current_page == 'dashboard')
+  {{-- Peity chart --}}
+  <script src="{{ asset('libs/peity/jquery.peity.min.js')}}"></script>
+  {{-- C3 chart --}}
+  <script src="{{ asset('libs/d3/d3.min.js')}}"></script>
+  <script src="{{ asset('libs/c3/c3.min.js')}}"></script>
+  <script src="{{ asset('libs/jquery-knob/jquery.knob.min.js')}}"></script>
+
+  <script src="{{ asset('js/plugins/dashboard.init.js') }}"></script>
+@endif

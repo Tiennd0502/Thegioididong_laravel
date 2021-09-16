@@ -16,17 +16,20 @@
   {{-- <link rel="stylesheet" type="text/css" href="{{ asset('css/accessories.css') }}"> --}}
 
 </head>
-<body class="{{ $current_page == 'dong-ho-thoi-trang' || $current_page == 'dong-ho-thong-minh' ? 'lunar' : ''}}">
+<body class="{{ ($current_page == 'dong-ho-thoi-trang' || $current_page == 'dong-ho-thong-minh') && !isset($detail_page) ? 'lunar' : ''}}">
   {{-- <div id="fb-root"></div> --}}
 {{-- <script async defer crossorigin="anonymous" src="https://connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v8.0&appId=319982449176196&autoLogAppEvents=1" nonce="YD5P5cue"></script> --}}
   <div class="container-fluid" style="background-color: {{ isset($background) ? $background : '' }}">
-  @include('frontend/elements/head')
-  <!-- /header -->
-  @include('frontend/elements/nav')
-  <!--  /nav -->
+    @include('frontend/elements/head')
+    <!-- /header -->
+    @include('frontend/elements/nav')
+    <!--  /nav -->
     <div class="container">
       @yield('content')
     </div>
+
+    @yield('slogan')
+    
     @include('frontend/elements/foot')
   </div>
 

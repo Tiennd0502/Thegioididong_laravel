@@ -3,7 +3,7 @@
   @foreach ($items as $item)
     <div class="">
       <div class="product-img">
-        <a href="">
+        <a href="{{ route('home.product.detail', [$item->category->slug, $item->slug])}}">
           <img src="{{asset('images/products'.$item->avatar)}}" alt="">
           @if($item->icon != '')
             <span><img src="{{asset('images/icons'.$item->icon)}}" alt=""></span>

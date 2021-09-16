@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Backend\AdminController;
+use App\Http\Controllers\Backend\DashboardController;
 use App\Http\Controllers\Backend\PageController;
 use App\Http\Controllers\Backend\SliderController;
 use App\Http\Controllers\Backend\CategoryController;
@@ -56,6 +57,14 @@ Route::post('logout', [AdminController::class, 'logout'])->name('admin.logout');
 
 
 Route::group(['prefix' => $prefix_admin, 'namespace' => 'Backend', 'middleware'=>'auth'],function(){ //  , 'middleware'=>'auth'
+
+    // =============================== dashboard ===============================
+    $prefix         = 'dashboard';
+    $controllerName = 'dashboard';
+    Route::group(['prefix' => $prefix], function () use($controllerName) {
+        Route::get('/', [DashboardController::class, 'index'])                ->name($controllerName.'.index')->middleware('can:show-'.$controllerName);
+    });
+
     // =============================== Page ===============================
     $prefix         = 'page';
     $controllerName = 'page';
@@ -167,6 +176,9 @@ Route::group(['prefix' => $prefix_admin, 'namespace' => 'Backend', 'middleware'=
     $controllerName = 'order';
     Route::group(['prefix' => $prefix], function () use($controllerName) {
         Route::get('/', [OrderController::class, 'index'])                ->name($controllerName.'.index')->middleware('can:list-'.$controllerName);
+        // Route::get('/{status}/{id}',[OrderController::class, 'status'])   ->name($controllerName.'.status')->whereNumber('id')->middleware('can:edit-'.$controllerName);
+        Route::put('/{id}', [OrderController::class, 'update'])           ->name($controllerName.'.update')->whereNumber('id')->middleware('can:edit-'.$controllerName);
+        Route::get('/{id}/edit', [OrderController::class, 'edit'])        ->name($controllerName.'.edit')->whereNumber('id')->middleware('can:edit-'.$controllerName);
         Route::delete('/{id}', [OrderController::class, 'destroy'])       ->name($controllerName.'.destroy')->whereNumber('id')->middleware('can:delete-'.$controllerName);
         Route::get('/{id}', [OrderController::class, 'show'])             ->name($controllerName.'.show')->whereNumber('id')->middleware('can:show-'.$controllerName);
     });
@@ -231,17 +243,16 @@ Route::group(['namespace' => 'Frontend'], function () {
     Route::get('/search', [HomeController::class, 'search'])->name('search');
     // cách 1
 
+    // Route::get('/home', [FCategoryController::class, 'index'])->name('home.index');
+    // Route::get('/trang-chu', [FCategoryController::class, 'index'])->name('home.index');
     Route::get('/', [FCategoryController::class, 'index'])->name('home.index');
-    Route::get('/home', [FCategoryController::class, 'index'])->name('home.index');
-    Route::get('/trang-chu', [FCategoryController::class, 'index'])->name('home.index');
+
 
     Route::get('/cart',[FCategoryController::class, 'cart'])->name('cart.index');
-    Route::post('/add-to-cat/{id}', [FCategoryController::class, 'addToCart'])->name('add-to-cart');
-
-    Route::post('/update-cart/{id}/{calculate}',[FCategoryController::class, 'updatedCart'])->name('updated-cart');
-    Route::post('/delete-cart/{id}',[FCategoryController::class, 'deleteCart'])->name('delete-cart');
+    Route::post('/add-to-cat/{id}', [FCategoryController::class, 'addToCart'])->whereNumber('id')->name('add-to-cart');
+    Route::post('/update-cart/{id}/{calculate}',[FCategoryController::class, 'updatedCart'])->whereNumber('id')->name('updated-cart');
+    Route::post('/delete-cart/{id}',[FCategoryController::class, 'deleteCart'])->whereNumber('id')->name('delete-cart');
     Route::post('/payment',[FCategoryController::class, 'payment'])->name('payment');
-
     Route::post('/evaluate',[FCategoryController::class, 'addEvaluate'])->name('evaluate.create'); 
 
     Route::get('/tin-tuc',[FCategoryController::class, 'post'])->name('post.index');
@@ -252,7 +263,7 @@ Route::group(['namespace' => 'Frontend'], function () {
     Route::get('/may-tinh-de-ban',[FCategoryController::class, 'desktop'])->name('desktop.index');    
 
     Route::get('/{category_slug}', [FCategoryController::class,'index'])->name('home.category.index');
-    // Route::get('/{category_slug}/{product_slug}', [FCategoryController::class,'detail'])->name('home.product.detail'); 
+    Route::get('/{category_slug}/{product_slug}', [FCategoryController::class,'detail'])->name('home.product.detail'); 
     // cách 2
     // Route::get('/dien-thoai',[HomeController::class,'mobile'])->name('dien-thoai.index');
     // Route::get('/dien-thoai/{slug}',[HomeController::class,'mobileDetail'])->name('dien-thoai.detail');
@@ -277,14 +288,14 @@ Route::group(['namespace' => 'Frontend'], function () {
     // Route::get('/sim-the-cao',[HomeController::class,'mobile'])->name('sim-the-cao.index');
     // Route::get('/tra-gop-dien-nuoc',[HomeController::class, 'laptop'])->name('tra-gop-dien-nuoc.index');
 
-    Route::get('/cart',[HomeController::class, 'cart'])->name('cart.index');
-    Route::post('/add-to-cat/{id}', [HomeController::class, 'addToCart'])->name('add-to-cart');
+    // Route::get('/cart',[HomeController::class, 'cart'])->name('cart.index');
+    // Route::post('/add-to-cat/{id}', [HomeController::class, 'addToCart'])->name('add-to-cart');
 
-    Route::post('/update-cart/{id}/{calculate}',[HomeController::class, 'updatedCart'])->name('updated-cart');
-    Route::post('/delete-cart/{id}',[HomeController::class, 'deleteCart'])->name('delete-cart');
-    Route::post('/payment',[HomeController::class, 'payment'])->name('payment');
+    // Route::post('/update-cart/{id}/{calculate}',[HomeController::class, 'updatedCart'])->name('updated-cart');
+    // Route::post('/delete-cart/{id}',[HomeController::class, 'deleteCart'])->name('delete-cart');
+    // Route::post('/payment',[HomeController::class, 'payment'])->name('payment');
 
-    Route::post('/evaluate',[HomeController::class, 'addEvaluate'])->name('evaluate.create');
+    // Route::post('/evaluate',[HomeController::class, 'addEvaluate'])->name('evaluate.create');
     
     
     

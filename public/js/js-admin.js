@@ -6,7 +6,7 @@ $(document).ready(function() {
   });
   $('[data-toggle="tooltip"]').tooltip();
 
-  // delete
+  // btn-delete
   $(".js-btn-delete").on('click', function(event) {
     event.preventDefault();
     let url = $(this).data('url');
@@ -634,5 +634,30 @@ $(document).ready(function() {
 
   })
 
+  //  change order status
+  $(document).on('click', '.js-btn-save-change-order-status', function(event) {
+    event.preventDefault();
+    let id = $(this).data('id');
+    let url = $(this).data('url');
+    let value = $("#js-order-status" + id).val();
+    console.log(id + '---' + url);
+    console.log(value);
+
+    $.ajax({
+      url: url,
+      type: "PUT",
+      dataType: 'json',
+      async: false,
+      data: {
+        status: value
+      },
+      success: function(data) {
+        console.log('thanh cong');
+      },
+      error: function(error) {
+        console.log('loi cmnr');
+      }
+    });
+  });
 
 });

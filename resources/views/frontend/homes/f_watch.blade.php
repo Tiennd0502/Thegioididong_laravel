@@ -13,7 +13,7 @@
   <div class="owl-carousel home-promo h-auto fwatch owl-theme" >
     @foreach ($fwatchs as $item)
     <div class="item">
-      <a href="" class="">
+      <a href="{{ route('home.product.detail', [$item->category->slug, $item->slug])}}" class="">
         {{-- Cach 2
             <a href="{{ route($item->category->slug.'.detail', $item->slug) }}" class="">
           --}}

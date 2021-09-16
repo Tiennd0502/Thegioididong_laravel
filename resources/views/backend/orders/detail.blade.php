@@ -80,7 +80,7 @@
       </tbody>
       <tr>
         <td colspan ="6" style="color: #dc3545; font-weight: 600" >Tổng</td>
-        <td class="text-right pr-5" style="color: #dc3545;font-weight: 600">{{ number_format($total -$discount,0,",",".") }}</td>
+        <td class="text-right pr-5" style="color: #dc3545;font-weight: 600">{{ number_format($total - $discount, 0, ",", ".") }}</td>
       </tr>
       {{-- <tr>
         <td colspan ="6" style="color: #dc3545;font-weight: 600" >Giảm giá</td>
@@ -88,7 +88,7 @@
       </tr> --}}
       <tr>
         <td colspan ="6" style="color: #dc3545;font-weight: 600" >Cần thanh toán</td>
-        <td class="text-right pr-5" style="color: #dc3545;font-weight: 600">{{  number_format($total -$discount,0,",",".") }}</td>
+        <td class="text-right pr-5" style="color: #dc3545;font-weight: 600">{{  number_format($total - $discount, 0, ",", ".") }}</td>
       </tr>
     </table>
   

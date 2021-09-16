@@ -18,7 +18,6 @@
         <a class="footer-link" href="/chinh-sach-khui-hop-apple" title="Chính sách khui hộp sản phẩm Apple">Chính sách khui hộp sản phẩm Apple</a>
 
         <span class="showmore" id="showmore" title="">Xem thêm <i class="fa fa-caret-down" id="iconfoot"></i></span>
-
       </div>
       <div class="colfoot">
         <a href="" title="">Giới thiệu công ty (mwg.vn)</a>
@@ -46,9 +45,10 @@
     </div>
   </div>
   <div class="row2foot">
-      <p>© 2018. Công ty cổ phần Thế Giới Di Động. GPMXH: 238/GP-BTTTT do Bộ Thông Tin và Truyền Thông cấp ngày 04/06/2020. Địa chỉ: 128 Trần Quang Khải, P. Tân Định, Q.1, TP.Hồ Chí Minh. Điện thoại: 028 38125960. Email: cskh@thegioididong.com. Chịu trách nhiệm nội dung: Huỳnh Văn Tốt. </p>
-    </div>
+    <p>© 2018. Công ty cổ phần Thế Giới Di Động. GPMXH: 238/GP-BTTTT do Bộ Thông Tin và Truyền Thông cấp ngày 04/06/2020. Địa chỉ: 128 Trần Quang Khải, P. Tân Định, Q.1, TP.Hồ Chí Minh. Điện thoại: 028 38125960. Email: cskh@thegioididong.com. Chịu trách nhiệm nội dung: Huỳnh Văn Tốt. </p>
+  </div>
 </footer>
+
 <p id="back-top" style="display: block;">
   <a href="#top" title="Về Đầu Trang"><span></span></a>
 </p>

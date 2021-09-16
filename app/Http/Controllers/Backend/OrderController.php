@@ -30,6 +30,21 @@ class OrderController extends Controller
         ]);
     }
 
+    public function edit($id)
+    {
+        $item = MainModel::find($id);
+        dd($item);
+    }
+
+    public function update(Request $request, $id)
+    {
+        $item = MainModel::find($id);
+        $item->status = $request->status;
+        $item->save();
+        // dd($id . '---'. $request->status);
+        return true;
+    }
+
     public function show($id)
     {
         $item = MainModel::find($id);

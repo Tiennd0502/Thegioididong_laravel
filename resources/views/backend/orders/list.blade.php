@@ -17,11 +17,22 @@
           <td >{{ $item->name }}</td>
           <td >{{ $item->phone }}</td>
           <td style="max-width:250px">{{ $item->address }}</td>
-          <td></td>
+          <td>
+            {{-- <a href="" class='text-decoration-none text-white {{$item->getStatus($item->status)['class']}}'>{{ $item->getStatus($item->status)['name'] }}</a> --}}
+            <select class="form-control " id="js-order-status{{$item->id}}">
+              <option value="0" {{ $item->status == 0 ? 'selected' : ''}}> Đơn mới đặt</option>
+              <option value="1" {{ $item->status == 1 ? 'selected' : ''}}> Đang vận chuyển</option>
+              <option value="2" {{ $item->status == 2 ? 'selected' : ''}}> Đã giao hàng</option>
+              <option value="3" {{ $item->status == 3 ? 'selected' : ''}}> Đã hủy</option>
+            </select>
+          </td>
           <td>
             @can('show-'.$controllerName)
               <a class="btn btn-outline-success" href="{{ route($controllerName.'.show',$item->id ) }}"><i class="fad fa-eye"></i> Xem </a>
             @endcan
+            @can('edit-'.$controllerName)
+              <a class="btn btn-outline-primary js-btn-save-change-order-status" data-url="{{ route($controllerName.'.update',$item->id)}}" data-id="{{$item->id}}"><i class="fas fa-pencil-alt"></i> Lưu lại</a>
+              @endcan
             @can('delete-'.$controllerName)
               <a class="btn btn-outline-danger js-btn-delete" data-url="{{ route($controllerName.'.destroy', $item->id ) }}"><i class="fad fa-trash-alt"></i> Xóa</a>
             @endcan

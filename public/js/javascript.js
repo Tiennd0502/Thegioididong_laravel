@@ -471,6 +471,7 @@ $(function() {
   });
 
   $("#js-pay-offline").click(function(event) {
+    console.log('tiến hành thanh toán');
     event.preventDefault();
     let check = true;
     let name = $.trim($("#js-customer-name").val());
@@ -565,11 +566,15 @@ $(function() {
           $('#js-form-order').css("opacity", ".5");
         },
         success: function(data) {
+          console.log(data);
           $('#js-pay-offline').removeAttr("disabled");
           alert("Bạn đã đặt hàng thành công! Sẽ có Nhân viên liện hệ xác nhận đơn hàng");
           window.location.reload();
         },
-        error: function(error) {}
+        error: function(error) {
+          alert("Bạn đã đặt hàng thất bại! Xin thử lại sau");
+          console.log('lỗi vô mồm');
+        }
       });
     } else {
       alert("Vui lòng kiểm tra, và điền đúng thông tin khách hàng!");
@@ -906,12 +911,13 @@ $(function() {
       contentType: false,
       cache: false,
       processData: false,
-      beforeSend: function() {
-        $('#js-sendEvaluate').attr("disabled", "disabled");
-        $('#js-my-evaluate').css("opacity", ".5");
-      },
+      // beforeSend: function() {
+      //   $('#js-sendEvaluate').attr("disabled", "disabled");
+      //   $('#js-my-evaluate').css("opacity", ".5");
+      // },
       success: function(data) {
-        alert('Đánh giá của bạn sẽ được hệ thống kiểm duyệt. Xin cám ơn về đánh giá của bạn!.')
+        // console.log('true');
+        alert('Đánh giá của bạn sẽ được hệ thống kiểm duyệt. Xin cám ơn về đánh giá của bạn!.');
         $('#js-my-evaluate').css("opacity", "");
         $("#js-sendEvaluate").removeAttr("disabled");
         $("#js-reset-evaluate").click();
@@ -920,6 +926,9 @@ $(function() {
         $(".show-input").click();
         $("#js-write-commnet").addClass('hide');
         $('#insert-attach-evaluate').prevAll().remove();
+      },
+      error: function(error) {
+        console.log('lỗi vô mồm');
       }
     });
   });
@@ -944,7 +953,7 @@ $(function() {
           keyword: keyword
         },
         success: function(data) {
-          console.log(data);
+          // console.log(data);
           if (data.length) {
             let _html = "";
             for (let key in data) {

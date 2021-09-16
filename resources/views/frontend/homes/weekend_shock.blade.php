@@ -1,12 +1,12 @@
 <div class="">
   <div id="owl-promo" class="owl-carousel home-promo weekend owl-theme">
-    @foreach ($weekend_shock as $item)
+    @foreach ($weekend_shock as $key => $item)
     <div class="item">
-      <a href="" class="{{($item->category_id ==2)? 'laptop ': ''}}large">
+      <a href="{{ route('home.product.detail', [$item->category->slug, $item->slug])}}" class="{{($item->category_id ==2)? 'laptop ': ''}}large">
       {{-- Cach 2
         <a href="{{ route($item->category->slug.'.detail', $item->slug) }}" class="{{($item->category_id ==2)? 'laptop ': ''}}large"> 
       --}}
-        <img src="{{ asset('images/products'.$item->avatar) }}" alt="" width="180" height="180" >
+        <img @if($key > 5) class="lazyload" loading="lazy" data-src="{{ asset('images/products'.$item->avatar) }}" @else src="{{ asset('images/products'.$item->avatar) }}" @endif  alt="" width="180" height="180" >
         <h3 class="product-name">{{ $item->name }}</h3>
         <div class="product-price">
           @if ($item->discount != 0)

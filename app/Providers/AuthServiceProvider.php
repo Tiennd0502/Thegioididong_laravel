@@ -29,6 +29,13 @@ class AuthServiceProvider extends ServiceProvider
     {
         $this->registerPolicies();
 
+        // dashboard
+        Gate::define('list-dashboard', 'App\Policies\DashboardPolicy@view');
+        Gate::define('add-dashboard', 'App\Policies\DashboardPolicy@create');
+        Gate::define('show-dashboard', 'App\Policies\DashboardPolicy@show');
+        Gate::define('copy-dashboard', 'App\Policies\DashboardPolicy@copy');
+        Gate::define('edit-dashboard', 'App\Policies\DashboardPolicy@update');
+        Gate::define('delete-dashboard', 'App\Policies\DashboardPolicy@delete');
         // page
         Gate::define('list-page', 'App\Policies\PagePolicy@view');
         Gate::define('add-page', 'App\Policies\PagePolicy@create');

@@ -1,7 +1,7 @@
 <div class="home-product" id="list-mobile"> 
   @foreach ($items as $key => $item)
     <div>
-      <a href="" class="large">
+      <a href="{{ route('home.product.detail', [$item->category->slug, $item->slug])}}" class="large">
       {{-- Cach 2
         <a href="{{ route('dien-thoai.detail',$item->slug) }}" class="large">
         --}}

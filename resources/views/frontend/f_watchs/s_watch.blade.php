@@ -24,7 +24,7 @@
       <div class="owl-carousel home-promo h-auto owl-watch owl-theme" >
         @foreach ($s_watch_hots as $item)
           <div class="item">
-            <a href="" class="">
+            <a href="{{ route('home.product.detail', [$item->category->slug, $item->slug])}}" class="">
               <img class="lazyload" loading="lazy" data-src="{{ asset('images/products'.$item->avatar)}}" alt="" width="180" height="180">
               <h3>{{$item->name }}</h3>
               <div class="product-price">

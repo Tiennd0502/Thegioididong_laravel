@@ -19,13 +19,14 @@
           @foreach (session()->get('cart') as $key => $item)
             <div class="order-item" id="js-order-item{{$key}}">
               <div class="">
-                <a href="{{route($item["category_slug"].'.detail',$item["slug"])}}"><img src="{{ asset('images/products'.$item["avatar"]) }}" alt="">
-                </a>
+                <a href="{{ route('home.product.detail', [$item["category_slug"], $item["slug"]])}}"><img src="{{ asset('images/products'.$item["avatar"]) }}" alt=""></a>
+                {{-- <a href="{{route($item["category_slug"].'.detail',$item["slug"])}}"><img src="{{ asset('images/products'.$item["avatar"]) }}" alt=""></a> --}}
                 <a href="#" class="delete js-delete" data-id= "{{$key}}" data-url="{{ route('delete-cart',$key) }}"><i class="fas fa-times-circle"></i>Xóa </a>
               </div>
               <div class="prd-infor">
                 <div>
-                  <a href="{{route($item["category_slug"].'.detail',$item["slug"])}}">{{$item["name"]}}</a>
+                  <a href="{{ route('home.product.detail', [$item["category_slug"], $item["slug"]])}}">{{$item["name"]}}</a>
+                  {{-- <a href="{{route($item["category_slug"].'.detail',$item["slug"])}}">{{$item["name"]}}</a> --}}
                   <strong>{{ number_format($item["price"],0,",", ".") }}₫</strong>
                 </div>
                 <div class="promotion">
