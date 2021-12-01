@@ -26,7 +26,7 @@
 	</div>
   <div class="row justify-content-end">
     <div class=" col-md-2 text-right">
-      <a href="" class="btn btn-dark" target="_link">In hóa đơn</a>
+      {{-- <a href="" class="btn btn-dark" target="_link">In hóa đơn</a> --}}
     </div>
   </div>
   <div class="row">

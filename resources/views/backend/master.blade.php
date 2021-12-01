@@ -16,9 +16,9 @@
 				@yield('content')
 		  </div>
 		  <!-- /.container-fluid -->
-			<footer class="footer">
+			<footer class="footer mt-5">
 				<div class="container-fluid">
-						<div class="row">
+						{{-- <div class="row">
 								<div class="col-sm-6">
 										2020 - 2021 © Admin .
 								</div>
@@ -27,7 +27,7 @@
 												Được viết <i class="fas fa-heart" style="color: #d0021b"></i> bởi Tiến Nguyễn
 										</div>
 								</div>
-						</div>
+						</div> --}}
 				</div>
 		</footer>
 		</div>

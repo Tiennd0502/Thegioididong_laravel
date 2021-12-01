@@ -297,7 +297,7 @@
   <!-- end row -->
 
   <div class="row mb-4">
-    <div class="col-xl-6">
+    {{-- <div class="col-xl-6">
       <div class="card">
         <div class="card-body">
           <h4 class="card-title mb-4">Giao dịch mới nhất</h4>
@@ -406,7 +406,7 @@
           </div>
         </div>
       </div>
-    </div>
+    </div> --}}
 
     <div class="col-xl-6">
       <div class="card">

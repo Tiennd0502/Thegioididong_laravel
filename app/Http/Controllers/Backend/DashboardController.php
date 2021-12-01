@@ -23,10 +23,10 @@ class DashboardController extends Controller
 
     public function index()
     {
-        $total_sales = 100;
+        $total_sales = 1000;
         $count_new_orders = Order::where('status', 0)->count();
         $count_total_users = Customer::count();
-        $unique_visitors = 99;
+        $unique_visitors = 1000;
         $count_total_orders = Order::count();
         $count_shipped_orders = Order::where('status', 2)->count();
         $count_cancel_orders = Order::where('status', 3)->count();

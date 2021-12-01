@@ -1,6 +1,28 @@
 ! function(o) {
   "use strict";
 
+  $.ajaxSetup({
+    headers: {
+      'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+    }
+  });
+
+  // $.ajax({
+  //   url: url,
+  //   type: "",
+  //   dataType: 'json',
+  //   async: false,
+  //   data: {
+  //     status: value
+  //   },
+  //   success: function(data) {
+  //     console.log('thanh cong');
+  //   },
+  //   error: function(error) {
+  //     console.log('loi cmnr');
+  //   }
+  // });
+
   function a() {}
   a.prototype.init = function() {
     o(".peity-line").each(function() { o(this).peity("line", o(this).data()) }), o(".knob").knob(), c3.generate({
